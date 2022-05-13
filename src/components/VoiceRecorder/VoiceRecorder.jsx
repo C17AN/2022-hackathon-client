@@ -118,6 +118,7 @@ const VoiceRecorder = ({ id, text: script, setTestScript, language, setIsWaiting
         <div className="flex flex-col gap-2 recorder-container">
           <section
             ref={recorderRef}
+            // onClick={toggleRecordingState}
             className="flex items-center text-sm text-gray-400 px-4 py-1 hover:text-blue-200 rounded-md border border-gray-200 cursor-pointer"
           >
             {isRecording ?
@@ -127,10 +128,10 @@ const VoiceRecorder = ({ id, text: script, setTestScript, language, setIsWaiting
               <p className="font-semibold ml-2 text-xs">{isRecording ? "녹음 중지" : "녹음 시작"}</p>
             }
           </section>
-          <div className="flex flex-col recorder-player">
+          <div className="flex flex-col recorder-player" onClick={() => togglePlayingStatus(playerRef)}>
             <section
               className="flex items-center text-sm text-gray-400 px-4 py-1 hover:text-blue-200 rounded-md border border-gray-200 cursor-pointer"
-              onClick={() => togglePlayingStatus(playerRef)}>
+            >
               {
                 isPlaying ?
                   <StopIcon className="h-8 w-8" /> :

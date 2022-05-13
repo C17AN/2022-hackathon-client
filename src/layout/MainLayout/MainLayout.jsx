@@ -7,7 +7,7 @@ import styles from "./MainLayout.module.css";
 const MainLayout = () => {
   return (
     <>
-      <div className={`${styles["layout-main"]} bg-red-500`}>
+      <div className={`${styles["layout-main"]}`}>
         <CenterLayout />
         {/* <RightLayout /> */}
       </div>
