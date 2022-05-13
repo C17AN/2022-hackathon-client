@@ -9,29 +9,33 @@ import TestResult from 'components/TestResult/TestResult'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { difficultyState, languageState, studyModeState } from 'store/store'
+import { accessTokenAtom, difficultyState, languageState, studyModeState } from 'store/store'
 import { AnimatePresence } from 'framer-motion'
 import styles from "./CenterLayout.module.css"
 import Menu from 'components/Menu/Menu'
 import RankingPage from 'pages/RankingPage'
 import MyProfilePage from 'pages/MyProfilePage'
+import ListPage from 'pages/ListPage'
 
 const CenterLayout = () => {
   const [language] = useRecoilState(languageState)
   const [difficulty] = useRecoilState(difficultyState)
   const [studyMode] = useRecoilState(studyModeState)
+  const accessToken = sessionStorage.getItem("accessToken")
+
 
   return (
     <div className={styles['layout-center']}>
       <AnimatePresence>
         {/* 메인 페이지 */}
         <Routes>
-          <Route path="/" element={<Hero />} />
+          <Route path="/" element={!accessToken ? <Hero /> : <Menu />} />
           <Route path="/menu" element={<Menu />} />
           {/* 타입 선택 페이지 */}
           <Route path="/tests/" element={<SelectStudyMode />} />
           <Route path="/ranking" element={<RankingPage />} />
           <Route path="/setting" element={<MyProfilePage />} />
+          <Route path="/test" element={<ListPage />} />
           {/* 문제 목록 페이지 */}
           <Route path="/:studyMode/:language" element={<TestList />} />
           {/* 문제 상세 페이지 */}

@@ -3,7 +3,7 @@
   justify-content: center;
   padding: 1rem 1rem;
   overflow: scroll;
-  height: 90vh;
+  min-height: 100vh;
   /* height: 90vh; */
   background-color: rgba(187, 213, 235, 0.8);
 }

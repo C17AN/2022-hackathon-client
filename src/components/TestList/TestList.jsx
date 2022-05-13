@@ -13,7 +13,14 @@ import Fab from '@mui/material/Fab'
 import AddIcon from '@mui/icons-material/Add';
 import Modal from '@mui/material/Modal';
 import TestTypeButton from 'components/TestTypeButton'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, TextField } from '@mui/material'
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+
 
 const PRE_DEFINED = "PRE"
 const USER_MADE = "CUSTOM"
@@ -29,9 +36,18 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  m: 1,
 };
 
 const TestList = () => {
+  const [level, setLevel] = useState('');
+  const [Lang, setLang] = useState('');
+  const handlelevelchange = (event1) => {
+    setLevel(event1.target.value);
+  }
+  const handlelangchange = (event) => {
+    setLang(event.target.value)
+  }
   const [testList, setTestList] = useRecoilState(testListState)
   const [difficulty,] = useRecoilState(difficultyState)
   const [category,] = useRecoilState(categoryState)
@@ -95,7 +111,42 @@ const TestList = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          모달 본문입니다.
+          <h2>직접 말할 내용을 구현해 보세요.</h2>
+          <FormControl sx={{ m: 1, minWidth: 120, width: 250, margintop: 20, spacing: 20, flexDirection: 'row' }} size="small">
+            <InputLabel id="demo-select-small">Level</InputLabel>
+            <Select
+              labelId="demo-select-small"
+              id="demo-select-small"
+              label="level"
+              value={level}
+              onChange={handlelevelchange}
+              sx={{ margintop: 20, marginright: 10, width: 150 }}
+            >
+              <MenuItem>Hard</MenuItem>
+              <MenuItem>Medium</MenuItem>
+              <MenuItem>Easy</MenuItem>
+            </Select>
+            <InputLabel id="demo-select-small" >Language</InputLabel>
+            <Select
+              labelId="demo-select-small"
+              id="demo-select-small"
+              label="Lang"
+              value={Lang}
+              onChange={handlelangchange}
+              sx={{ margintop: 20, width: 150 }}
+            >
+              <MenuItem>Korean</MenuItem>
+              <MenuItem>English</MenuItem>
+            </Select>
+          </FormControl>
+          <Divider />
+          <FormControl sx={{ m: 1, minWidth: 120, margintop: 20 }} size="small">
+            <TextField multiline rows={4} style={{ width: 250 }} id="outlined-basic" placeholder="문장을 입력하세요" size="big" />
+          </FormControl>
+          <FormControl sx={{ m: 1, minWidth: 120, width: 250, margintop: 20 }}>
+            <Button size="small" variant="contained">전송</Button>
+            <Button size="small" variant="outline">나가기</Button>
+          </FormControl>
         </Box>
       </Modal>
     </>

@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
-import waveBackground from 'assets/images/wavesOpacity.svg'
 import TalkImage from "assets/images/talk-image.svg"
 import "./Hero.css"
 import { motion } from 'framer-motion'
 import BaseCard from 'components/common/BaseCard/BaseCard'
 import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
-import { authService } from 'index'
 import { initializeApp } from 'firebase/app';
+import { useRecoilState } from 'recoil'
+import { accessTokenAtom, usernameAtom } from 'store/store'
+import { useNavigate } from 'react-router-dom'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBLTBI9-WXQlK0vvrZ7-NT0JAIqLaHUrno",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "hackathon-6a27a.firebaseapp.com",
   projectId: "hackathon-6a27a",
   storageBucket: "hackathon-6a27a.appspot.com",
@@ -22,8 +23,13 @@ const firebaseConfig = {
 const provider = new GoogleAuthProvider();
 
 const Hero = () => {
+  const [, setAcessToken] = useRecoilState(accessTokenAtom)
+  const [, setUsername] = useRecoilState(usernameAtom)
   const app = initializeApp(firebaseConfig);
+
   const authService = getAuth();
+  const navigation = useNavigate()
+
   const handleGoogleLogin = async () => {
     await signInWithRedirect(authService, provider);
 
@@ -33,11 +39,16 @@ const Hero = () => {
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access Google APIs.
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-
-      // The signed-in user info.
+      const accessToken = credential.accessToken;
       const user = result.user;
+      // The signed-in user info.
+      setUsername(user)
+      if (accessToken) {
+        sessionStorage.setItem('accessToken', accessToken)
+        setAcessToken(accessToken)
+      }
       console.log(result)
+      navigation('/menu')
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;

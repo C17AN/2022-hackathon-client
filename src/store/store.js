@@ -1,8 +1,21 @@
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { atom } from "recoil";
 
-export const isSignedIn = atom({
+
+export const isSignedInAtom = atom({
   key: "isSignedIn",
   default: false
+})
+
+export const accessTokenAtom = atom({
+  key: "accessToken",
+  default: null
+})
+
+export const usernameAtom = atom({
+  key: "username",
+  default: null
 })
 
 export const languageState = atom({

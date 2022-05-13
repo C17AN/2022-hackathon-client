@@ -5,7 +5,7 @@
   border-radius: 0.5rem;
   padding: 1rem 1.25rem;
   width: 40%;
-  height: 100%;
   overflow: scroll;
+  min-height: 90%;
   background-color: white;
 }
