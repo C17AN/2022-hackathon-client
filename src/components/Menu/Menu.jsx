@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import { languageState, studyModeState } from "store/store";
 import language from "constants/language";
 import MenuType from "./MenuType";
+import "./style.scss"
 
 const Menu = () => {
   const [, setSelectedLanguage] = useRecoilState(languageState);
@@ -16,8 +17,9 @@ const Menu = () => {
   }
 
   return (
-    <BaseCard className="h-full justify-start">
-      <h2 className="text-2xl font-bold">언어 선택</h2>
+    <div className="h-full justify-start">
+      <h2 className="menu-title font-bold text-left">언어 선택</h2>
+      <hr className="my-2" />
       <ul className="w-full flex-col flex items-center p-2">
         <MenuItem
           title="한국어 발음평가"
@@ -60,7 +62,7 @@ const Menu = () => {
           isDisabled={true}
         />
       </ul>
-    </BaseCard>
+    </div>
   );
 };
 

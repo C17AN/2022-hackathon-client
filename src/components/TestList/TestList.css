@@ -4,7 +4,8 @@
 }
 
 .test-list-wrapper::-webkit-scrollbar {
-  width: 2px;
+  /* width: 2px; */
+  display: none;
   background-color: #978080;
 }
 
@@ -13,7 +14,7 @@
 }
 
 .test-list-wrapper::-webkit-scrollbar-thumb {
-  background-color: #cbd5f1;
+  /* background-color: #cbd5f1; */
   border-radius: 100px;
 }
 

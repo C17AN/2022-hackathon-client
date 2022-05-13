@@ -2,5 +2,6 @@
   display: flex;
   justify-content: center;
   padding: 1.5rem 2rem;
+  overflow: scroll;
   height: 90vh;
 }

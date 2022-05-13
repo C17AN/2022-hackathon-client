@@ -1,3 +1,4 @@
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { requestTTSApi } from 'apis/TTS/postTTS'
 import BaseCard from 'components/common/BaseCard/BaseCard'
 import Scenario from 'components/Scenario/Scenario'
@@ -7,7 +8,6 @@ import VoicePlayer from 'components/VoicePlayer/VoicePlayer'
 import VoiceRecorder from 'components/VoiceRecorder/VoiceRecorder'
 import setAudioConfig from 'utils/setAudioConfig'
 import LANGUAGE from 'constants/language'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { useRecoilState } from 'recoil'
 import { languageState } from 'store/store'
@@ -58,7 +58,8 @@ const TestDetail = () => {
       <div className="flex justify-between mb-4 items-center">
         <ScenarioTag text={`${parseLanguageName(language)} / ${id}번 / ${parseDifficultyName(testDifficulty)}`} className="mr-3" />
       </div>
-      <BaseCard className="test-detail-container p-4 h-full flex flex-col justify-start">
+      <BaseCard className="test-detail-container h-full flex flex-col justify-start">
+        <div>예문 랭킹 확인하기</div>
         <Scenario text={testScript} difficulty={testDifficulty} language={language} id={id} />
         <div className="flex flex-col justify-evenly w-full">
           {TTSaudio && <VoicePlayer audioFile={TTSaudio} />}

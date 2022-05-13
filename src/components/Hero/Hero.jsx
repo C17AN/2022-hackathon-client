@@ -12,15 +12,17 @@ const Hero = () => {
       <img src={TalkImage} className="hero-image" width="240" alt="hero" />
       <section className="hero-title text-center">
         <h1 className="text-3xl mt-4 font-montserrat font-semibold mb-3">
-          TALKY<span className="text-blue-500">TALKY</span>
+          <span className="text-blue-500">24</span>시간이 모자라
         </h1>
         <p className="text-gray-500 text-xl">24시간의 기적, 24H</p>
         <Link to="menu">
           <motion.p
-            animate={{ x: [-10, 0, -10] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="mt-8 px-6 py-2 rounded-md bg-blue-500 text-white shadow-md cursor-pointer">
-            터치해서 시작하세요
+            className="mt-8 py-2 rounded-md bg-blue-100 text-gray-500 shadow-md cursor-pointer">
+            로그인
+          </motion.p>
+          <motion.p
+            className="mt-8 py-2 rounded-md bg-blue-500 text-white shadow-md cursor-pointer">
+            새로 시작하기
           </motion.p>
         </Link>
       </section>

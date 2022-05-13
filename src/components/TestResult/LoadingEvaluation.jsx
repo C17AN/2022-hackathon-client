@@ -4,7 +4,7 @@ import "./LoadingEvaluation.css"
 
 const LoadingEvaluation = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
       <img src={loadingAnimation} alt="loading" className="loading-svg" />
       <div>
         <p className="font-semibold text-lg ml-2 text-gray-500">평가를 기다리고 있습니다.</p>

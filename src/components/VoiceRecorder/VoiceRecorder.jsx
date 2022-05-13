@@ -6,13 +6,11 @@ import { requestSpeechAPI } from 'apis/Speech/postSpeech'
 import { useRecoilState } from 'recoil'
 import { testResultState } from 'store/store'
 import { setScoreTextHelper } from 'utils/setScoreTextHelper'
-import { useHistory } from 'react-router'
 
 // 이 코드는 블로그에 정리하기!!
 // 아주 유용할듯!
 
 const VoiceRecorder = ({ id, text: script, setTestScript, language, setIsWaiting }) => {
-  const history = useHistory()
   const [isRecording, setIsRecording] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isEnded, setIsEnded] = useState(false)
@@ -115,39 +113,35 @@ const VoiceRecorder = ({ id, text: script, setTestScript, language, setIsWaiting
 
   return (
     <div className="flex justify-between items-center rounded-md mb-4 py-4 px-6 w-full shadow-md border-l-8 border-blue-400">
-      <section className="flex flex-col">
-        <h2 className="font-semibold text-xl">Step 2. 내 발음 입력하기</h2>
-        <div className="flex items-center mt-2 text-gray-400">
-          <InformationCircleIcon className="h-4 mr-1" />
-          <p className="text-sm">본 기능은 ETRI 발음평가 기술을 활용합니다.</p>
+      <section className="flex flex-col w-full">
+        <h2 className="font-semibold text-xl mb-2">Step 2. 내 발음 입력하기</h2>
+        <div className="flex flex-col gap-2 recorder-container">
+          <section
+            ref={recorderRef}
+            className="flex items-center text-sm text-gray-400 px-4 py-1 hover:text-blue-200 rounded-md border border-gray-200 cursor-pointer"
+          >
+            {isRecording ?
+              <StopIcon className="h-8 w-8" /> :
+              <PlayIcon className="h-8 w-8 transition-colors" />}
+            {isEnded ? <p className="font-semibold ml-2" onClickCapture={() => window.location.reload()}>다시 평가하기</p> :
+              <p className="font-semibold ml-2 text-xs">{isRecording ? "녹음 중지" : "녹음 시작"}</p>
+            }
+          </section>
+          <div className="flex flex-col recorder-player">
+            <section
+              className="flex items-center text-sm text-gray-400 px-4 py-1 hover:text-blue-200 rounded-md border border-gray-200 cursor-pointer"
+              onClick={() => togglePlayingStatus(playerRef)}>
+              {
+                isPlaying ?
+                  <StopIcon className="h-8 w-8" /> :
+                  <PlayIcon className="h-8 w-8 transition-colors" />
+              }
+              <p className="font-semibold ml-2">들어보기</p>
+            </section>
+          </div>
+          <audio controls autobuffer="autobuffer" ref={playerRef} className="record-player" />
         </div>
       </section>
-      <div className="flex space-x-4 recorder-container">
-        <section
-          ref={recorderRef}
-          className="flex items-center text-sm text-gray-400 px-4 py-1 hover:text-blue-200 rounded-md border border-gray-200 cursor-pointer"
-        >
-          {isRecording ?
-            <StopIcon className="h-8 w-8" /> :
-            <PlayIcon className="h-8 w-8 transition-colors" />}
-          {isEnded ? <p className="font-semibold ml-2" onClickCapture= {() => window.location.reload()}>다시 평가하기</p> :
-            <p className="font-semibold ml-2">{isRecording ? "녹음 중지" : "녹음 시작"}</p>
-          }
-        </section>
-        <div className="flex flex-col recorder-player">
-          <section
-            className="flex items-center text-sm text-gray-400 px-4 py-1 hover:text-blue-200 rounded-md border border-gray-200 cursor-pointer"
-            onClick={() => togglePlayingStatus(playerRef)}>
-            {
-              isPlaying ?
-                <StopIcon className="h-8 w-8" /> :
-                <PlayIcon className="h-8 w-8 transition-colors" />
-            }
-            <p className="font-semibold ml-2">결과 재생</p>
-          </section>
-        </div>
-        <audio controls autobuffer="autobuffer" ref={playerRef} className="record-player" />
-      </div>
     </div>
   )
 }

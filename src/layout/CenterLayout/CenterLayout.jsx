@@ -7,12 +7,14 @@ import TestFilter from 'components/TestFilter/TestFilter'
 import TestList from 'components/TestList/TestList'
 import TestResult from 'components/TestResult/TestResult'
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { difficultyState, languageState, studyModeState } from 'store/store'
 import { AnimatePresence } from 'framer-motion'
 import styles from "./CenterLayout.module.css"
 import Menu from 'components/Menu/Menu'
+import RankingPage from 'pages/RankingPage'
+import SettingPage from 'pages/SettingPage'
 
 const CenterLayout = () => {
   const [language] = useRecoilState(languageState)
@@ -23,29 +25,18 @@ const CenterLayout = () => {
     <div className={styles['layout-center']}>
       <AnimatePresence>
         {/* 메인 페이지 */}
-        <Route path="/" exact>
-          <Hero />
-        </Route>
-        <Route path="/menu">
-          <Menu />
-        </Route>
-        {/* 타입 선택 페이지 */}
-        <Route path="/tests/" exact>
-          <SelectStudyMode />
-        </Route>
-        {/* 문제 목록 페이지 */}
-        <Route path="/:studyMode/:language" exact>
-          <>
-            {/* <TestFilter /> */}
-            <TestList />
-          </>
-        </Route>
-        {/* 문제 상세 페이지 */}
-        <Route path="/:studyMode/:language/:id">
-          <>
-            <TestDetail />
-          </>
-        </Route>
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/menu" element={<Menu />} />
+          {/* 타입 선택 페이지 */}
+          <Route path="/tests/" element={<SelectStudyMode />} />
+          <Route path="/ranking" element={<RankingPage />} />
+          <Route path="/setting" element={<SettingPage />} />
+          {/* 문제 목록 페이지 */}
+          <Route path="/:studyMode/:language" element={<TestList />} />
+          {/* 문제 상세 페이지 */}
+          <Route path="/:studyMode/:language/:id" element={<TestDetail />} />
+        </Routes>
       </AnimatePresence>
     </div>
   )

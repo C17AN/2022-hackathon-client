@@ -1,18 +1,18 @@
 .hero-image {
   position: relative;
-  opacity: 0;
+  /* opacity: 0;
   animation-name: slideIn;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
-  top: -150px;
+  top: -150px; */
 }
 
 .hero-title {
-  opacity: 0;
+  /* opacity: 0;
   animation-name: fadeIn;
   animation-delay: 1.5s;
   animation-duration: 2s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: forwards; */
 }
 
 @keyframes slideIn {

@@ -3,14 +3,17 @@ import { subtitleVariants } from 'styles/framerAnimation'
 
 const BaseSubtitle = ({ text, className: cn }) => {
   return (
-    <motion.h2
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={subtitleVariants}
-      className={[`mb-4 font-semibold text-xl`, cn].join(" ")}>
-      {text}
-    </motion.h2>
+    <>
+      <motion.h2
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={subtitleVariants}
+        className={[`mb-2 font-semibold text-2xl`, cn].join(" ")}>
+        {text}
+      </motion.h2>
+      <hr className="mb-3 mt-1 border" />
+    </>
   )
 }
 

@@ -105,10 +105,6 @@ const VoiceRecorder = ({ text: script, language }) => {
     <div className="flex justify-between items-center rounded-md mb-4 py-4 px-6 w-full shadow-md border-l-8 border-blue-400">
       <section className="flex flex-col">
         <h2 className="font-semibold text-xl">Step 2. 내 발음 입력하기</h2>
-        <div className="flex items-center mt-2 text-gray-400">
-          <InformationCircleIcon className="h-4 mr-1" />
-          <p className="text-sm">본 기능은 ETRI 발음평가 기술을 활용합니다.</p>
-        </div>
       </section>
       <section
         ref={playerRef}
