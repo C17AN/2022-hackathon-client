@@ -3,105 +3,90 @@
     "id": 1,
     "text": "아버지 가방에 들어가신다",
     "difficulty": "EASY",
-    "language": "한국어",
-    "category": "DAILY"
+    "language": "한국어"
   },
   {
     "id": 2,
     "text": "안녕, 어디 가는 길이니?",
     "difficulty": "EASY",
-    "language": "한국어",
-    "category": "DAILY"
+    "language": "한국어"
   },
   {
     "id": 3,
     "text": "나는 오늘 미국행 비행기를 타기로 했어",
     "difficulty": "EASY",
-    "language": "한국어",
-    "category": "TRAVEL"
+    "language": "한국어"
   },
   {
     "id": 4,
     "text": "하늘과 별과 바람과 시",
     "difficulty": "EASY",
-    "language": "한국어",
-    "category": "ART"
+    "language": "한국어"
   },
   {
     "id": 5,
     "text": "그는 그렇게 말했습니다.",
     "difficulty": "EASY",
-    "language": "한국어",
-    "category": "DAILY"
+    "language": "한국어"
   },
   {
     "id": 6,
     "text": "우린 불안 때문에 삶을 규칙적으로 만든다.",
     "difficulty": "EASY",
-    "language": "한국어",
-    "category": "DAILY"
+    "language": "한국어"
   },
   {
     "id": 7,
     "text": "아버지가 묻는다. 다시 태어나면 무엇이 되고 싶으냐고.",
     "difficulty": "EASY",
-    "language": "한국어",
-    "category": "DAILY"
+    "language": "한국어"
   },
   {
     "id": 8,
     "text": "너의 모든 생명의 함대는 바람 불고 물결 높은 날 내 마지막 바다 노량으로 오라.",
     "difficulty": "EASY",
-    "language": "한국어",
-    "category": "ART"
+    "language": "한국어"
   },
   {
     "id": 9,
     "text": "걱정 마라. 절망이야말로 가장 순수하고 치열한 열정이다.",
     "difficulty": "EASY",
-    "language": "한국어",
-    "category": "DAILY"
+    "language": "한국어"
   },
   {
     "id": 10,
     "text": "아버지가 꿈꾼 세상은 모두에게 할 일을 주고, 일한 대가로 먹고 입고, 누구나 다 자식을 공부시키며 이웃을 사랑하는 세계였다.",
     "difficulty": "HARD",
-    "language": "한국어",
-    "category": "ART"
+    "language": "한국어"
   },
   {
     "id": 11,
     "text": "세월은 지난 것을 말하지 않는다. 다만 새로 이룬 것을 보여줄 뿐이다.",
     "difficulty": "NORMAL",
-    "language": "한국어",
-    "category": "DAILY"
+    "language": "한국어"
   },
   {
     "id": 12,
     "text": "아, 달고 시고 쓰고 짠 눈물이여, 어디에서 와 어디로 흐르는가.",
     "difficulty": "HARD",
-    "language": "한국어",
-    "category": "ART"
+    "language": "한국어"
   },
   {
     "id": 13,
     "text": "상상은 자유지만, 자유는 상상이 아니기 때문이다.",
     "difficulty": "NORMAL",
-    "language": "한국어",
-    "category": "DAILY"
+    "language": "한국어"
   },
   {
     "id": 14,
     "text": "마음먹은 대로 꿈을 이루고 사는 사람은 아무도 없어. 그래서 꿈은 그것을 간직하고 있는 동안에만 행복한 거야.",
     "difficulty": "HARD",
-    "language": "한국어",
-    "category": "DAILY"
+    "language": "한국어"
   },
   {
     "id": 15,
     "text": "사람이 사람을 충분히 안다는 것은 하나의 우주를 안다는 것이다.",
     "difficulty": "NORMAL",
-    "language": "한국어",
-    "category": "DAILY"
+    "language": "한국어"
   }
 ]

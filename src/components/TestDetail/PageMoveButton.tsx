@@ -20,7 +20,7 @@ const PageMoveButton: React.FC<ButtonProps> = ({
   className,
 }) => {
   return (
-    <Link to={`/${studyMode}/${language}/${problemId}`}>
+    <Link to={`/${language}/${problemId}`}>
       <BaseButton text={text} onClick={onClick} className={className} />
     </Link>
   );

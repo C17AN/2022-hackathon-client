@@ -18,15 +18,16 @@ const firebaseConfig = {
 function App() {
   const [username, setUsername] = useRecoilState(usernameAtom)
   const [, setAccessToken] = useRecoilState(accessTokenAtom)
+  const app = initializeApp(firebaseConfig);
+
   const initAccessToken = async () => {
-    const app = initializeApp(firebaseConfig);
     const authService = getAuth();
     const user = authService?.currentUser
-    console.log(user)
     const { displayName, accessToken } = user || { displayName: "", accessToken: "" };
-    setUsername(displayName)
-    if (accessToken) {
+
+    if (user) {
       sessionStorage.setItem("accessToken", accessToken)
+      setUsername(displayName)
       setAccessToken(accessToken)
     }
     console.log(accessToken)
@@ -34,7 +35,7 @@ function App() {
 
   useEffect(() => {
     initAccessToken()
-  }, [])
+  }, [username])
 
 
   return (

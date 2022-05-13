@@ -15,7 +15,7 @@ export const accessTokenAtom = atom({
 
 export const usernameAtom = atom({
   key: "username",
-  default: null
+  default: null,
 })
 
 export const languageState = atom({

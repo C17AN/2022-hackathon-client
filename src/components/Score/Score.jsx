@@ -13,7 +13,7 @@ const Score = ({ score }) => {
   }, [score])
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center mb-2">
       <div className={`font-light text-3xl mx-4 my-1 ${scoreClassName}`}>
         {score}
       </div>

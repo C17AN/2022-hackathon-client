@@ -15,9 +15,9 @@ const ResultDescription = () => {
   }, [testResult])
 
   return (
-    <div className="result-description-summary ml-4 mr-6 text-sm">
+    <p className="result-description-summary text-gray-600 ml-4 mr-6 text-sm">
       {resultDescription}
-    </div>
+    </p>
   )
 }
 

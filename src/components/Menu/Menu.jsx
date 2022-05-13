@@ -9,11 +9,9 @@ import "./style.scss"
 
 const Menu = () => {
   const [, setSelectedLanguage] = useRecoilState(languageState);
-  const [, setSelectedStudyMode] = useRecoilState(studyModeState)
 
   const handleSelectLanguage = (language) => {
     setSelectedLanguage(language)
-    setSelectedStudyMode(null)
   }
 
   return (

@@ -3,105 +3,90 @@
     "id": 1,
     "text": "Life is like riding a bicycle.",
     "difficulty": "EASY",
-    "language": "ENGLISH",
-    "category": "ART"
+    "language": "ENGLISH"
   },
   {
     "id": 2,
     "text": "Hi, Where are you going?",
     "difficulty": "EASY",
-    "language": "ENGLISH",
-    "category": "DAILY"
+    "language": "ENGLISH"
   },
   {
     "id": 3,
     "text": "I'm going to take plane to New York.",
     "difficulty": "EASY",
-    "language": "ENGLISH",
-    "category": "TRAVEL"
+    "language": "ENGLISH"
   },
   {
     "id": 4,
     "text": "A rose by any other name would smell as sweet.",
     "difficulty": "EASY",
-    "language": "ENGLISH",
-    "category": "DAILY"
+    "language": "ENGLISH"
   },
   {
     "id": 5,
     "text": "All that glitters is not gold.",
     "difficulty": "EASY",
-    "language": "ENGLISH",
-    "category": "ART"
+    "language": "ENGLISH"
   },
   {
     "id": 6,
     "text": "All the world’s a stage, and all the men and women merely players.",
     "difficulty": "NORMAL",
-    "language": "ENGLISH",
-    "category": "DAILY"
+    "language": "ENGLISH"
   },
   {
     "id": 7,
     "text": "Our current retail travel packages are listed below.",
     "difficulty": "NORMAL",
-    "language": "ENGLISH",
-    "category": "TRAVEL"
+    "language": "ENGLISH"
   },
   {
     "id": 8,
     "text": "Ask, and it shall be given you; seek, and you shall find.",
     "difficulty": "NORMAL",
-    "language": "ENGLISH",
-    "category": "ART"
+    "language": "ENGLISH"
   },
   {
     "id": 9,
     "text": "Genius is one percent inspiration and ninety-nine percent perspiration.",
     "difficulty": "NORMAL",
-    "language": "ENGLISH",
-    "category": "ART"
+    "language": "ENGLISH"
   },
   {
     "id": 10,
     "text": "This walking tour lasts approximately 45 minutes.",
     "difficulty": "HARD",
-    "language": "ENGLISH",
-    "category": "TRAVEL"
+    "language": "ENGLISH"
   },
   {
     "id": 11,
     "text": "He travels the fastest who travels alone.",
     "difficulty": "EASY",
-    "language": "ENGLISH",
-    "category": "ART"
+    "language": "ENGLISH"
   },
   {
     "id": 12,
     "text": "I have a dream that my four little children will one day live in a nation.",
     "difficulty": "HARD",
-    "language": "ENGLISH",
-    "category": "ART"
+    "language": "ENGLISH"
   },
   {
     "id": 13,
     "text": "I think therefore I am.",
     "difficulty": "EASY",
-    "language": "ENGLISH",
-    "category": "ART"
+    "language": "ENGLISH"
   },
   {
     "id": 14,
     "text": "Not all those who wander are lost.",
     "difficulty": "NORMAL",
-    "language": "ENGLISH",
-    "category": "ART"
+    "language": "ENGLISH"
   },
   {
     "id": 15,
     "text": "United we stand, divided we fall.",
     "difficulty": "EASY",
-    "language": "ENGLISH",
-    "category": "DAILY"
+    "language": "ENGLISH"
   }
 ]

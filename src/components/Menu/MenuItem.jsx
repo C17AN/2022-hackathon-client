@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const MenuItem = ({ title, language, onClick, isDisabled }) => {
   const [selectedLanguage, _] = useRecoilState(languageState)
   return (
-    <Link to={!isDisabled && `/Problem/${language}`} className="w-4/5">
+    <Link to={!isDisabled && `/${language}`} className="w-4/5">
       <motion.li
         whileHover={{
           scale: 1.07

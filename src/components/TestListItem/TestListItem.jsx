@@ -2,19 +2,18 @@ import { motion } from 'framer-motion'
 import TestListItemButton from './TestListItemButton'
 import "./TestListItem.scss"
 import { categoryClassNameSetter, difficultyClassNameSetter } from 'utils/classNameSetter'
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { parseCategoryName } from 'utils/parseCategoryName'
 import { parseDifficultyName } from 'utils/parseDifficultyName'
 import { useRecoilState } from 'recoil'
 import { languageState, studyModeState } from 'store/store'
 
 const TestListItem = ({ id, text, category, difficulty }) => {
-
-  const [language] = useRecoilState(languageState)
+  const { language } = useParams()
   const [studyMode] = useRecoilState(studyModeState)
 
   return (
-    <Link to={`/${studyMode}/${language}/${id}`}>
+    <Link to={`/${language}/${id}`}>
       <motion.li
         transition={{
           duration: 0.2
@@ -29,8 +28,8 @@ const TestListItem = ({ id, text, category, difficulty }) => {
           <p className="pl-1 test-list-text text-left font-semibold text-gray-600">{text}</p>
         </div>
         <section className="flex space-x-4">
-          <p className={`${categoryClassNameSetter(category)} rounded-md p-1 px-2 text-sm`}>{parseCategoryName(category)}</p>
-          <p className={`${difficultyClassNameSetter(difficulty)} rounded-md p-1 px-2 text-sm`}>{parseDifficultyName(difficulty)}</p>
+          {/* <p className={`${categoryClassNameSetter(category)} rounded-md p-1 px-2 text-sm`}>{parseCategoryName(category)}</p> */}
+          <p className={`${difficultyClassNameSetter(difficulty)} rounded-md p-1 px-2 text-xs`}>{parseDifficultyName(difficulty)}</p>
         </section>
       </motion.li >
     </Link>

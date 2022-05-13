@@ -13,7 +13,7 @@ const TestResult = ({ isWaiting }) => {
 
   return (
     <>
-      <div className="voice-player flex items-center justify-center rounded-md py-4 px-6 w-full mb-4 shadow-md border-l-8 border-blue-100">
+      <div className="voice-player flex flex-col items-center justify-center rounded-md py-4 px-6 w-full mb-4 shadow-md border-l-8 border-blue-100">
         {isWaiting ?
           <LoadingEvaluation /> :
           <>

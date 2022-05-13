@@ -37,9 +37,9 @@ const CenterLayout = () => {
           <Route path="/setting" element={<MyProfilePage />} />
           <Route path="/test" element={<ListPage />} />
           {/* 문제 목록 페이지 */}
-          <Route path="/:studyMode/:language" element={<TestList />} />
+          <Route path="/:language" element={<TestList />} />
           {/* 문제 상세 페이지 */}
-          <Route path="/:studyMode/:language/:id" element={<TestDetail />} />
+          <Route path="/:language/:id" element={<TestDetail />} />
         </Routes>
       </AnimatePresence>
     </div>

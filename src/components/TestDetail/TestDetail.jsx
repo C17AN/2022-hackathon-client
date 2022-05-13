@@ -14,6 +14,7 @@ import { languageState } from 'store/store'
 import { parseLanguageName } from 'utils/parseLanguageName'
 import { parseDifficultyName } from 'utils/parseDifficultyName'
 import PageMoveButton from './PageMoveButton'
+import styled from '@emotion/styled'
 
 const TestDetail = () => {
   let { studyMode, language, id } = useParams()
@@ -59,7 +60,6 @@ const TestDetail = () => {
         <ScenarioTag text={`${parseLanguageName(language)} / ${id}번 / ${parseDifficultyName(testDifficulty)}`} className="mr-3" />
       </div>
       <BaseCard className="test-detail-container h-full flex flex-col justify-start">
-        <div>예문 랭킹 확인하기</div>
         <Scenario text={testScript} difficulty={testDifficulty} language={language} id={id} />
         <div className="flex flex-col justify-evenly w-full">
           {TTSaudio && <VoicePlayer audioFile={TTSaudio} />}
@@ -75,7 +75,7 @@ const TestDetail = () => {
         <TestResult
           isWaiting={isWaiting}
         />
-        <section className="flex justify-between w-full">
+        <PageMoveButtonContainer className="flex justify-between w-full">
           {1 < id ?
             <PageMoveButton text="이전 문제" problemId={+id - 1} studyMode={studyMode} language={language} className="page-move--button" /> :
             <div></div>
@@ -84,10 +84,14 @@ const TestDetail = () => {
             <PageMoveButton text="다음 문제" problemId={+id + 1} studyMode={studyMode} language={language} /> :
             <div></div>
           }
-        </section>
+        </PageMoveButtonContainer>
       </BaseCard >
     </>
   )
 }
+
+const PageMoveButtonContainer = styled.section`
+  padding-bottom: 1rem;
+`
 
 export default TestDetail
