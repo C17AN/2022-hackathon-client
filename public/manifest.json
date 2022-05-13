@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "홈스피크",
+  "name": "집에서 간단히 배우는 회화",
   "icons": [
     {
       "src": "favicon.ico",

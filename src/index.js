@@ -4,6 +4,7 @@ import App from "./App";
 import "styles/global.css";
 import { RecoilRoot } from "recoil";
 import { HashRouter as Router } from "react-router-dom";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration"
 
 ReactDOM.render(
   <Router>
@@ -13,3 +14,5 @@ ReactDOM.render(
   </Router>,
   document.getElementById("root")
 );
+
+serviceWorkerRegistration.register();

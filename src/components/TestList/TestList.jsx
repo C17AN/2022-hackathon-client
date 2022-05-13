@@ -39,6 +39,7 @@ const TestList = () => {
   const [selectedLanguage, setSelectedLanguage] = useRecoilState(languageState)
   const [open, setOpen] = useState(false);
   const [testMadeType, setTestMadeType] = useState(PRE_DEFINED)
+  const [content, setContent] = React.useState('');
   const handleOpen = () => { setOpen(true); };
   const handleClose = () => { setOpen(false); };
   const fetchTestList = async () => {

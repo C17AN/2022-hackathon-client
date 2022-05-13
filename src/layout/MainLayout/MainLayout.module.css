@@ -1,7 +1,8 @@
 .layout-main {
   display: flex;
   justify-content: center;
-  padding: 1.5rem 2rem;
+  padding: 1rem 1rem;
   overflow: scroll;
   height: 90vh;
+  background-color: rgba(187, 213, 235, 0.8);
 }
