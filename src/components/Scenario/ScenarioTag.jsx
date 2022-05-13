@@ -1,10 +1,13 @@
 import React from 'react'
 
-const ScenarioTag = ({ text }) => {
+const ScenarioTag = ({ text, maxScoreUser }) => {
   return (
-    <h2 className="flex text-2xl w-full text-left font-semibold items-center justify-start rounded-md px-2 py-2 shadow-sm">
-      {text}
-    </h2>
+    <div className="w-full">
+      <h2 className="flex text-2xl w-full text-left font-semibold items-center justify-start rounded-md px-2 py-2 shadow-sm">
+        {text}
+      </h2>
+      <p>{maxScoreUser}</p>
+    </div>
   )
 }
 

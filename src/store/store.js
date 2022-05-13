@@ -67,3 +67,12 @@ export const testResultState = atom({
   }
 })
 
+export const scoreAtom = atom({
+  key: "score",
+  default: 0
+})
+
+export const solvecountAtom = atom({
+  key: "solvecount",
+  default: 0
+})

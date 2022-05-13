@@ -7,6 +7,7 @@ import { useRecoilState } from 'recoil'
 import { testResultState } from 'store/store'
 import LoadingEvaluation from './LoadingEvaluation'
 
+
 const TestResult = ({ isWaiting }) => {
   const [testResult,] = useRecoilState(testResultState)
   const { score } = testResult
@@ -17,7 +18,7 @@ const TestResult = ({ isWaiting }) => {
         {isWaiting ?
           <LoadingEvaluation /> :
           <>
-            <Score score={score}></Score>
+            <Score score={score} />
             <ResultDescription />
           </>
         }

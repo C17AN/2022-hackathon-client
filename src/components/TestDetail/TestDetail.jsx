@@ -53,10 +53,11 @@ const TestDetail = () => {
   }
 
   const fetchTestDetail = async (_id) => {
-    const testData = problemType === PRE_DEFINED || problemType === USER_MADE ?
+    const testData = problemType === PRE_DEFINED ?
       await getTutorialProblemList(language) :
       await getCustomProblemList(language)
-    const testDetail = testData.filter(({ problemId }) => problemId === +_id)[0]
+    const testDetail = [...testData].filter(({ problemId }) => problemId === +_id)[0]
+    console.log(testData)
     setTestScript(testDetail.content)
     setTestDifficulty(testDetail.tier)
     fetchTTSAudioData(testDetail.content)

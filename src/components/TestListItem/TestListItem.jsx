@@ -1,14 +1,11 @@
 import { motion } from 'framer-motion'
-import TestListItemButton from './TestListItemButton'
 import "./TestListItem.scss"
-import { categoryClassNameSetter, difficultyClassNameSetter } from 'utils/classNameSetter'
+import { difficultyClassNameSetter } from 'utils/classNameSetter'
 import { Link, useParams } from "react-router-dom"
-import { parseCategoryName } from 'utils/parseCategoryName'
 import { parseDifficultyName } from 'utils/parseDifficultyName'
-import { useRecoilState } from 'recoil'
-import { languageState, studyModeState } from 'store/store'
+import styled from '@emotion/styled'
 
-const TestListItem = ({ index, id, text, category, difficulty }) => {
+const TestListItem = ({ index, id, text, category, difficulty, topMemberName, madeUserName }) => {
   const { language } = useParams()
 
   return (
@@ -29,11 +26,15 @@ const TestListItem = ({ index, id, text, category, difficulty }) => {
         <section className="flex justify-between space-x-4">
           {/* <p className={`${categoryClassNameSetter(category)} rounded-md p-1 px-2 text-sm`}>{parseCategoryName(category)}</p> */}
           <p className={`${difficultyClassNameSetter(difficulty)} rounded-md p-1 px-2 text-xs`}>{parseDifficultyName(difficulty)}</p>
-          <p className={"text-xs"}>{parseDifficultyName(difficulty)}</p>
+          <MaxScoreUser className={"text-xs mt-1 text-gray-500"}>문제 제작자 : <span className="bg-blue-50 rounded-md ml-1 p-1 px-2">{madeUserName}</span></MaxScoreUser>
         </section>
       </motion.li >
     </Link>
   )
 }
+
+const MaxScoreUser = styled.p`
+  font-size: 0.625rem;
+`
 
 export default TestListItem

@@ -4,14 +4,13 @@ import DIFFICULTY from "constants/difficulty";
 import React from "react";
 import { useRecoilState } from "recoil";
 import { difficultyState, studyModeState } from "store/store";
-import { parseModeName } from "utils/parseModeName";
 import DifficultyButton from "./DifficultyButton";
 
 const SelectDifficulty = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useRecoilState(difficultyState);
-  
+
   const handleSetDifficulty = (difficulty) => {
-    if(selectedDifficulty === difficulty) {
+    if (selectedDifficulty === difficulty) {
       setSelectedDifficulty(null)
     }
     else {

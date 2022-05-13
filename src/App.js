@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenAtom, emailAtom, usernameAtom } from "store/store";
@@ -14,30 +14,35 @@ const firebaseConfig = {
   appId: "1:446447542102:web:1de6573c968571e79c00f7",
   measurementId: "G-V7KVFXSLYD"
 };
+const app = initializeApp(firebaseConfig);
 
 function App() {
   const [username, setUsername] = useRecoilState(usernameAtom)
   const [email, setEmail] = useRecoilState(emailAtom)
   const [, setAccessToken] = useRecoilState(accessTokenAtom)
-  const app = initializeApp(firebaseConfig);
 
-  const initAccessToken = async () => {
+  const initAccessToken = () => {
     const authService = getAuth();
-    const user = authService?.currentUser
-    const { displayName, accessToken } = user || { displayName: "", accessToken: "" };
+    const userName = authService?.currentUser?.displayName
+    onAuthStateChanged(authService, (user) => {
+      if (user) {
+        const { accessToken, displayName, email } = user;
+        sessionStorage.setItem("accessToken", accessToken)
+        setUsername(displayName)
+        setEmail(email)
+        setAccessToken(accessToken)
+      } else {
+        // User is signed out
+        // ...
+      }
+    })
 
-    if (user) {
-      sessionStorage.setItem("accessToken", accessToken)
-      setUsername(displayName)
-      setEmail(email)
-      setAccessToken(accessToken)
+    if (userName) {
     }
-    console.log(accessToken)
   }
 
   useEffect(() => {
     initAccessToken()
-    console.log("hi")
   }, [username])
 
 

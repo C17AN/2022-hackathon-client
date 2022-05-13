@@ -16,6 +16,10 @@ const VoiceRecorder = ({ id, text: script, setTestScript, language, setIsWaiting
   const [isEnded, setIsEnded] = useState(false)
   const [testResult, setTestResult] = useRecoilState(testResultState)
 
+  const handleCompleteTest = () => {
+
+  }
+
   const playerRef = useRef(null)
   const recorderRef = useRef(null)
 

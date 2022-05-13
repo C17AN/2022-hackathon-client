@@ -33,21 +33,18 @@ const CustomScriptModal = ({ handleClose }) => {
 
   const handleLevelChange = (event) => {
     setLevel(event.target.value);
-    console.log(level)
   }
   const handleLangChange = (event) => {
     setLang(event.target.value)
-    console.log(lang)
   }
 
   const handleScriptChange = (e) => {
     setScript(e.target.value)
-    console.log(script)
   }
 
   const handleSubmitForm = (e) => {
     e.preventDefault()
-    postCustomProblem({ username, content: "", language: lang, tier: level })
+    postCustomProblem({ username, content: script, language: lang, tier: level })
   }
 
   return (
@@ -89,9 +86,9 @@ const CustomScriptModal = ({ handleClose }) => {
       <FormControl sx={{ m: 1, margintop: 20 }} size="small">
         <TextField multiline rows={4} style={{ width: 250 }} id="outlined-basic" placeholder="문장을 입력하세요" size="big" onChange={handleScriptChange} />
       </FormControl>
-      <FormControl sx={{ display: "flex", m: 1, minWidth: 120, width: 250, margintop: 20 }}>
-        <Button size="small" variant="contained" onClick={handleSubmitForm} sx={{ backgroundColor: "#6194b8" }}>전송</Button>
-        <Button size="small" variant="outline" onClick={handleClose}>나가기</Button>
+      <FormControl sx={{ display: "flex", gap: 2, m: 1, minWidth: 120, width: 250, margintop: 20 }}>
+        <Button size="small" variant="contained" onClick={handleSubmitForm} sx={{ backgroundColor: "#abd0e0", color: "#333" }}>전송</Button>
+        <Button size="small" variant="contained" onClick={handleClose} sx={{ backgroundColor: "#de9b9b", color: "#333" }}>나가기</Button>
       </FormControl>
     </Box>
   )

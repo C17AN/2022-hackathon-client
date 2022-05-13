@@ -1,9 +1,9 @@
 import React from 'react'
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { usernameAtom } from "store/store";
 
 const PageTitle = ({ text }) => {
-  const username = useRecoilValue(usernameAtom);
+  const username = useRecoilState(usernameAtom);
   return (
     <>
       <h1 className="text-xl font-semibold">{text}</h1>

@@ -3,7 +3,7 @@ import React from 'react'
 
 const TestTypeButton = ({ text, onClick, isSelected }) => {
   return (
-    <Container className="flex-1" isSelected={isSelected} onClick={onClick}>{text}</Container>
+    <Container className="flex-1 text-sm" isSelected={isSelected} onClick={onClick}>{text}</Container>
   )
 }
 

@@ -3,7 +3,7 @@ import BaseSubtitle from 'components/common/BaseSubtitle/BaseSubtitle'
 import TestListItem from 'components/TestListItem/TestListItem'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
-import { categoryState, difficultyState, languageState, problemTypeAtom, testListState } from 'store/store'
+import { difficultyState, languageState, problemTypeAtom, testListState } from 'store/store'
 import "./TestList.css"
 import { v4 as uuidv4 } from "uuid"
 import { useParams } from 'react-router'
@@ -39,7 +39,7 @@ const TestList = () => {
   }
 
   const fetchTestList = async () => {
-    const testData = problemType === PRE_DEFINED || problemType === USER_MADE ?
+    const testData = problemType === PRE_DEFINED ?
       await getTutorialProblemList(language) :
       await getCustomProblemList(language)
     let testList = testData
@@ -65,7 +65,8 @@ const TestList = () => {
       <BaseCard className="test-list-wrapper block">
         <ul className="w-full">
           {testList?.map((testData, index) => {
-            const { problemId, content, tier } = testData
+            const { problemId, content, tier, topMemberName, madeUserName } = testData
+            console.log(testData)
             return (
               <TestListItem
                 index={index + 1}
@@ -73,6 +74,8 @@ const TestList = () => {
                 text={content}
                 difficulty={tier}
                 key={uuidv4()}
+                madeUserName={madeUserName}
+                topMemberName={topMemberName}
               />
             )
           })}

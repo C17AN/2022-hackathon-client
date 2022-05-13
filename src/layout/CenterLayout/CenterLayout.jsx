@@ -1,11 +1,7 @@
-import BaseCard from 'components/common/BaseCard/BaseCard'
 import Hero from 'components/Hero/Hero'
-import SelectDifficulty from 'components/SelectDifficulty/SelectDifficulty'
 import SelectStudyMode from 'components/SelectStudyMode/SelectStudyMode'
 import TestDetail from 'components/TestDetail/TestDetail'
-import TestFilter from 'components/TestFilter/TestFilter'
 import TestList from 'components/TestList/TestList'
-import TestResult from 'components/TestResult/TestResult'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
@@ -18,8 +14,6 @@ import MyProfilePage from 'pages/MyProfilePage'
 import ListPage from 'pages/ListPage'
 
 const CenterLayout = () => {
-  const [language] = useRecoilState(languageState)
-  const [difficulty] = useRecoilState(difficultyState)
   const [problemType] = useRecoilState(problemTypeAtom)
   const accessToken = sessionStorage.getItem("accessToken")
 

@@ -12,4 +12,3 @@ export const getCustomProblem = async (language) => {
   const { data } = await axios.get(getCustomProblemEndpoint, { params: { language } })
   return data
 }
-
