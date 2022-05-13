@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import { languageState, studyModeState } from "store/store";
 import language from "constants/language";
 import MenuType from "./MenuType";
+import LanguageIcon from '@mui/icons-material/Language';
 import "./style.scss"
 
 const Menu = () => {
@@ -16,7 +17,10 @@ const Menu = () => {
 
   return (
     <div className="h-full justify-start">
-      <h2 className="menu-title font-bold text-left">언어 선택</h2>
+      <div className="flex items-center">
+        <LanguageIcon color="primary" />
+        <h2 className="menu-title font-bold text-left ml-2">언어 선택</h2>
+      </div>
       <hr className="my-2" />
       <ul className="w-full flex-col flex items-center p-2">
         <MenuItem

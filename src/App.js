@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { accessTokenAtom, usernameAtom } from "store/store";
+import { accessTokenAtom, emailAtom, usernameAtom } from "store/store";
 import MainLayout from "./layout/MainLayout/MainLayout";
 
 const firebaseConfig = {
@@ -17,6 +17,7 @@ const firebaseConfig = {
 
 function App() {
   const [username, setUsername] = useRecoilState(usernameAtom)
+  const [email, setEmail] = useRecoilState(emailAtom)
   const [, setAccessToken] = useRecoilState(accessTokenAtom)
   const app = initializeApp(firebaseConfig);
 
@@ -28,6 +29,7 @@ function App() {
     if (user) {
       sessionStorage.setItem("accessToken", accessToken)
       setUsername(displayName)
+      setEmail(email)
       setAccessToken(accessToken)
     }
     console.log(accessToken)
@@ -35,6 +37,7 @@ function App() {
 
   useEffect(() => {
     initAccessToken()
+    console.log("hi")
   }, [username])
 
 

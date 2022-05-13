@@ -6,7 +6,6 @@ interface ButtonProps extends HTMLButtonElement {
   text: string;
   onClick: () => {};
   problemId: string | number;
-  studyMode: string;
   language: string;
   className: string;
 }
@@ -15,7 +14,6 @@ const PageMoveButton: React.FC<ButtonProps> = ({
   text,
   onClick,
   problemId,
-  studyMode,
   language,
   className,
 }) => {

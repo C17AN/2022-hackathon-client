@@ -9,7 +9,7 @@ import TestResult from 'components/TestResult/TestResult'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { accessTokenAtom, difficultyState, languageState, studyModeState } from 'store/store'
+import { accessTokenAtom, difficultyState, languageState, problemTypeAtom, studyModeState } from 'store/store'
 import { AnimatePresence } from 'framer-motion'
 import styles from "./CenterLayout.module.css"
 import Menu from 'components/Menu/Menu'
@@ -20,7 +20,7 @@ import ListPage from 'pages/ListPage'
 const CenterLayout = () => {
   const [language] = useRecoilState(languageState)
   const [difficulty] = useRecoilState(difficultyState)
-  const [studyMode] = useRecoilState(studyModeState)
+  const [problemType] = useRecoilState(problemTypeAtom)
   const accessToken = sessionStorage.getItem("accessToken")
 
 
@@ -39,7 +39,7 @@ const CenterLayout = () => {
           {/* 문제 목록 페이지 */}
           <Route path="/:language" element={<TestList />} />
           {/* 문제 상세 페이지 */}
-          <Route path="/:language/:id" element={<TestDetail />} />
+          <Route path="/:language/:id" element={<TestDetail problemType={problemType} />} />
         </Routes>
       </AnimatePresence>
     </div>

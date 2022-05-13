@@ -8,11 +8,13 @@ import { useNavigate } from "react-router-dom";
 const MainLayout = () => {
   const accessToken = sessionStorage.getItem('accessToken');
   const navigation = useNavigate()
+
   const preventUnauthorizedAccess = () => {
     if (!accessToken) {
       navigation('/', { replace: true })
     }
   }
+
   useEffect(() => {
     preventUnauthorizedAccess()
   }, [])

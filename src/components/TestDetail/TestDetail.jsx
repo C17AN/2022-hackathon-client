@@ -10,17 +10,22 @@ import setAudioConfig from 'utils/setAudioConfig'
 import LANGUAGE from 'constants/language'
 import { useParams } from 'react-router'
 import { useRecoilState } from 'recoil'
-import { languageState } from 'store/store'
+import { languageState, problemTypeAtom } from 'store/store'
 import { parseLanguageName } from 'utils/parseLanguageName'
 import { parseDifficultyName } from 'utils/parseDifficultyName'
 import PageMoveButton from './PageMoveButton'
 import styled from '@emotion/styled'
+import { getCustomProblem, getTutorialProblem } from 'apis/Problem/getProblem'
+
+const PRE_DEFINED = "PRE"
+const USER_MADE = "CUSTOM"
 
 const TestDetail = () => {
-  let { studyMode, language, id } = useParams()
+  let { language, id } = useParams()
   const [testScript, setTestScript] = useState(null)
   const [testDifficulty, setTestDifficulty] = useState(null)
   const [selectedLanguage, setSelectedLanguage] = useRecoilState(languageState)
+  const [problemType] = useRecoilState(problemTypeAtom)
   const [TTSaudio, setTTSAudio] = useState(null)
   const [TTSConfig, setTTSConfig] = useState(setAudioConfig(language))
   const [isWaiting, setIsWaiting] = useState(true)
@@ -37,15 +42,24 @@ const TestDetail = () => {
     setIsWaiting(true)
   }, [testScript, id])
 
+  const getTutorialProblemList = async (language) => {
+    const data = await getTutorialProblem(language)
+    return data
+  }
+
+  const getCustomProblemList = async (language) => {
+    const data = await getCustomProblem(language)
+    return data
+  }
 
   const fetchTestDetail = async (_id) => {
-    const { default: testData } = language === LANGUAGE.KOREAN ?
-      await import("data/koreanTest.json") :
-      await import("data/englishTest.json")
-    const testDetail = testData.filter(({ id }) => id === +_id)[0]
-    setTestScript(testDetail.text)
-    setTestDifficulty(testDetail.difficulty)
-    fetchTTSAudioData(testDetail.text)
+    const testData = problemType === PRE_DEFINED || problemType === USER_MADE ?
+      await getTutorialProblemList(language) :
+      await getCustomProblemList(language)
+    const testDetail = testData.filter(({ problemId }) => problemId === +_id)[0]
+    setTestScript(testDetail.content)
+    setTestDifficulty(testDetail.tier)
+    fetchTTSAudioData(testDetail.content)
   }
 
   const fetchTTSAudioData = async (text) => {
@@ -77,11 +91,11 @@ const TestDetail = () => {
         />
         <PageMoveButtonContainer className="flex justify-between w-full">
           {1 < id ?
-            <PageMoveButton text="이전 문제" problemId={+id - 1} studyMode={studyMode} language={language} className="page-move--button" /> :
+            <PageMoveButton text="이전 문제" problemId={+id - 1} language={language} className="page-move--button" /> :
             <div></div>
           }
           {problemCount > id ?
-            <PageMoveButton text="다음 문제" problemId={+id + 1} studyMode={studyMode} language={language} /> :
+            <PageMoveButton text="다음 문제" problemId={+id + 1} language={language} /> :
             <div></div>
           }
         </PageMoveButtonContainer>
