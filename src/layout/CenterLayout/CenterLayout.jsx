@@ -14,7 +14,7 @@ import { AnimatePresence } from 'framer-motion'
 import styles from "./CenterLayout.module.css"
 import Menu from 'components/Menu/Menu'
 import RankingPage from 'pages/RankingPage'
-import SettingPage from 'pages/SettingPage'
+import MyProfilePage from 'pages/MyProfilePage'
 
 const CenterLayout = () => {
   const [language] = useRecoilState(languageState)
@@ -31,7 +31,7 @@ const CenterLayout = () => {
           {/* 타입 선택 페이지 */}
           <Route path="/tests/" element={<SelectStudyMode />} />
           <Route path="/ranking" element={<RankingPage />} />
-          <Route path="/setting" element={<SettingPage />} />
+          <Route path="/setting" element={<MyProfilePage />} />
           {/* 문제 목록 페이지 */}
           <Route path="/:studyMode/:language" element={<TestList />} />
           {/* 문제 상세 페이지 */}
