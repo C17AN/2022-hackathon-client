@@ -1,0 +1,6 @@
+.layout-right {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 0 1.5rem;
+}

@@ -1,0 +1,33 @@
+.text-list-text-container {
+  width: 60%;
+}
+
+.test-list-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.category {
+  &--daily {
+    background-color: rgba(221, 170, 170, 0.733);
+  }
+  &--art {
+    background-color: rgba(226, 235, 180, 0.733);
+  }
+  &--travel {
+    background-color: rgba(184, 221, 170, 0.733);
+  }
+}
+
+.difficulty {
+  &--easy {
+    background-color: #d1e4f7f1;
+  }
+  &--normal {
+    background-color: #d2b9e0d5;
+  }
+  &--hard {
+    background-color: #cfcbf1d5;
+  }
+}

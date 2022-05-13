@@ -1,0 +1,40 @@
+.test-list-wrapper {
+  align-items: flex-start;
+  overflow-y: scroll;
+}
+
+.test-list-wrapper::-webkit-scrollbar {
+  width: 2px;
+  background-color: #978080;
+}
+
+.test-list-wrapper::-webkit-scrollbar-track {
+  border-radius: 100px;
+}
+
+.test-list-wrapper::-webkit-scrollbar-thumb {
+  background-color: #cbd5f1;
+  border-radius: 100px;
+}
+
+.paginate-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.paginate-page {
+  background-color: #bbd5eb;
+  color: white;
+  padding: 0 8px;
+  border-radius: 8px;
+}
+
+.paginate-active {
+}
+
+.paginate-prev {
+}
+
+.paginate-next {
+}

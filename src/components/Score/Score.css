@@ -1,0 +1,19 @@
+.excellent {
+  color: cornflowerblue;
+}
+
+.good {
+  color: green;
+}
+
+.normal {
+  color: rgb(135, 189, 53);
+}
+
+.bad {
+  color: orange;
+}
+
+.poor {
+  color: red;
+}

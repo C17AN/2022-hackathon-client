@@ -1,0 +1,7 @@
+.test-detail-container {
+  overflow: scroll;
+}
+
+.page-move--button:hover {
+  background-color: cornflowerblue !important;
+}
