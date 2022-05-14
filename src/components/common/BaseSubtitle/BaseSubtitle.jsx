@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { subtitleVariants } from 'styles/framerAnimation'
 
-const BaseSubtitle = ({ text, className: cn }) => {
+const BaseSubtitle = ({ text, className: cn, hasBottomLine = true }) => {
   return (
     <>
       <motion.h2
@@ -12,7 +12,7 @@ const BaseSubtitle = ({ text, className: cn }) => {
         className={[`mb-2 font-semibold text-2xl`, cn].join(" ")}>
         {text}
       </motion.h2>
-      <hr className="mb-3 mt-1 border" />
+      {hasBottomLine && <hr className="mb-3 mt-1 border" />}
     </>
   )
 }

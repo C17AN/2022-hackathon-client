@@ -9,6 +9,8 @@ import Divider from '@mui/material/Divider';
 import { usernameAtom } from 'store/store';
 import { useRecoilState } from 'recoil';
 import { postCustomProblem } from 'apis/Problem/postCustomProblem';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const CustomScriptModal = ({ handleClose }) => {
   const style = {
@@ -45,6 +47,8 @@ const CustomScriptModal = ({ handleClose }) => {
   const handleSubmitForm = (e) => {
     e.preventDefault()
     postCustomProblem({ username, content: script, language: lang, tier: level })
+    handleClose()
+    toast('데이터가 전송되었습니다!')
   }
 
   return (
@@ -63,7 +67,7 @@ const CustomScriptModal = ({ handleClose }) => {
             sx={{ margintop: 20, marginright: 30, width: 110 }}
           >
             <MenuItem value="HARD">어려움</MenuItem>
-            <MenuItem value="MEDIUM">보통</MenuItem>
+            <MenuItem value="NORMAL">보통</MenuItem>
             <MenuItem value="EASY">쉬움</MenuItem>
           </Select>
         </FormControl>
@@ -77,7 +81,7 @@ const CustomScriptModal = ({ handleClose }) => {
             onChange={handleLangChange}
             sx={{ margintop: 20, width: 110, padding: 0 }}
           >
-            <MenuItem value="한국어">한글</MenuItem>
+            <MenuItem value="KOREAN">한글</MenuItem>
             <MenuItem value="ENGLISH">영어</MenuItem>
           </Select>
         </FormControl>
@@ -90,7 +94,7 @@ const CustomScriptModal = ({ handleClose }) => {
         <Button size="small" variant="contained" onClick={handleSubmitForm} sx={{ backgroundColor: "#abd0e0", color: "#333" }}>전송</Button>
         <Button size="small" variant="contained" onClick={handleClose} sx={{ backgroundColor: "#de9b9b", color: "#333" }}>나가기</Button>
       </FormControl>
-    </Box>
+    </Box >
   )
 }
 
