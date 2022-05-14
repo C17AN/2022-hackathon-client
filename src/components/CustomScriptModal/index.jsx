@@ -27,7 +27,6 @@ const CustomScriptModal = ({ handleClose }) => {
     p: 3,
     m: 1,
   };
-
   const [level, setLevel] = useState('');
   const [lang, setLang] = useState('');
   const [script, setScript] = useState('');
@@ -47,8 +46,8 @@ const CustomScriptModal = ({ handleClose }) => {
   const handleSubmitForm = (e) => {
     e.preventDefault()
     postCustomProblem({ username, content: script, language: lang, tier: level })
-    handleClose()
-    toast('데이터가 전송되었습니다!')
+    handleClose();
+    toast.success("데이터가 전송되었습니다!");
   }
 
   return (
@@ -92,7 +91,8 @@ const CustomScriptModal = ({ handleClose }) => {
       </FormControl>
       <FormControl sx={{ display: "flex", gap: 2, m: 1, minWidth: 120, width: 250, margintop: 20 }}>
         <Button size="small" variant="contained" onClick={handleSubmitForm} sx={{ backgroundColor: "#abd0e0", color: "#333" }}>전송</Button>
-        <Button size="small" variant="contained" onClick={handleClose} sx={{ backgroundColor: "#de9b9b", color: "#333" }}>나가기</Button>
+        <ToastContainer position={toast.POSITION.TOP_RIGHT} autoClose={2000} />
+        <Button size="small" variant="contained" onClick={this.handleClose} sx={{ backgroundColor: "#de9b9b", color: "#333" }}>나가기</Button>
       </FormControl>
     </Box >
   )

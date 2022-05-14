@@ -65,9 +65,9 @@ const Hero = () => {
       <img src={TalkImage} className="hero-image" width="240" alt="hero" />
       <section className="hero-title text-center">
         <h1 className="text-3xl mt-4 font-montserrat font-semibold mb-3">
-          <span className="text-blue-500">24</span>시간이 모자라
+          <span className="text-blue-500">Home</span>peak
         </h1>
-        <p className="text-gray-500 text-xl">24시간의 기적, 24H</p>
+        <p className="text-gray-400 text-md">이제, 혼자서 시작하는 회화</p>
         <div className="mt-4 space-y-4">
           <motion.p
             className="mt-8 py-2 rounded-md bg-gray-200 text-gray-500 shadow-md cursor-pointer"
